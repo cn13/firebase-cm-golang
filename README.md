@@ -1,4 +1,4 @@
-# google-firebase-go
+# firebase-cm-golang
 FireBase Cloude Message
 
 
