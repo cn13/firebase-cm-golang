@@ -54,13 +54,21 @@ func SetUrl(url string) {
 	urlFireBase = url
 }
 
-func Send(path string, message interface{}) {
+func Send(path string, message interface{}) bool {
 	reader := strings.NewReader(prepareMessageSend(message))
 	request, err := http.NewRequest("PATCH", urlFireBase+path+".json", reader)
 	client := &http.Client{}
 	resp, err := client.Do(request)
 	if (err != nil) {
 		fmt.Println(err)
+		return false
+	} else {
+		if (resp.StatusCode == 200) {
+			return true;
+		} else {
+			fmt.Println(resp)
+			return false;
+		}
 	}
 }
 
