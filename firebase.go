@@ -61,8 +61,6 @@ func Send(path string, message interface{}) {
 	resp, err := client.Do(request)
 	if (err != nil) {
 		fmt.Println(err)
-	} else {
-		fmt.Println(resp)
 	}
 }
 
